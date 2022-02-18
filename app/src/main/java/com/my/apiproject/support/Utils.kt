@@ -5,6 +5,11 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log
+import androidx.core.content.ContextCompat
+import com.my.apiproject.R
+import java.io.IOException
+import java.io.InputStream
+import java.nio.charset.Charset
 import java.util.regex.Pattern
 
 object Utils {
@@ -64,5 +69,35 @@ object Utils {
         val matcher = pattern.matcher(number)
         return matcher.matches()
     }
+
+    fun getJsonFromAssets(context: Context, fileName: String): String? {
+        val jsonString: String = try {
+            val inputStream: InputStream = context.assets.open(fileName)
+            val size: Int = inputStream.available()
+            val buffer = ByteArray(size)
+            inputStream.read(buffer)
+            inputStream.close()
+            String(buffer, Charset.forName("UTF-8"))
+        } catch (e: IOException) {
+            e.printStackTrace()
+            return null
+        }
+        return jsonString
+    }
+
+    fun getColor(
+        context: Context,
+        language: String
+    ): Int {
+        return if (Constants.languageColorCodes.containsKey(language)) {
+            ContextCompat.getColor(
+                context,
+                Constants.languageColorCodes[language]!!
+            )
+        } else {
+            ContextCompat.getColor(context, R.color.lan_java)
+        }
+    }
+
 
 }

@@ -8,28 +8,26 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/mainCard"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="5dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="3dp"
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp">
+            android:layout_height="wrap_content"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/repositoryIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/language_circle"
+                android:layout_marginStart="5dp"
                 app:layout_constraintEnd_toStartOf="@+id/repositoryTitle"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,81 +35,90 @@
                 android:id="@+id/repositoryTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="square"
-                android:textSize="18sp"
                 android:layout_marginStart="10dp"
-                app:layout_constraintBottom_toTopOf="@+id/languageIcon"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
+                android:text="square"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/repositoryIcon"
                 app:layout_constraintStart_toEndOf="@+id/repositoryIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0" />
+                app:layout_constraintTop_toTopOf="@+id/repositoryIcon" />
 
             <TextView
                 android:id="@+id/repositoryFullTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
                 android:text="square"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/repositoryDescription"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/repositoryTitle"
-                app:layout_constraintVertical_bias="0.1" />
+                app:layout_constraintTop_toBottomOf="@+id/repositoryIcon" />
 
             <TextView
                 android:id="@+id/repositoryDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="15dp"
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:text="square"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/languageTitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/repositoryFullTitle"
-                app:layout_constraintVertical_bias=".15" />
-
-            <ImageView
-                android:id="@+id/mainImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/repositoryFullTitle" />
 
             <ImageView
                 android:id="@+id/languageIcon"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
+                android:layout_width="16dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
                 android:src="@drawable/language_circle"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/repositoryDescription"
-                app:layout_constraintVertical_bias="0.75" />
+                app:layout_constraintTop_toBottomOf="@+id/repositoryDescription" />
 
             <TextView
                 android:id="@+id/languageTitle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
                 android:text="square"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/languageIcon"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/dark_grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/languageIcon"
-                app:layout_constraintTop_toTopOf="@+id/languageIcon"
-                app:layout_constraintVertical_bias="0.915" />
+                app:layout_constraintTop_toBottomOf="@+id/repositoryDescription" />
+
+
+            <ImageView
+                android:id="@+id/starIcon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/repo_star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/starCount"
+                app:layout_constraintTop_toBottomOf="@+id/repositoryDescription" />
+
+            <TextView
+                android:id="@+id/starCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:text="square"
+                android:textColor="@color/dark_grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/repositoryDescription" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
